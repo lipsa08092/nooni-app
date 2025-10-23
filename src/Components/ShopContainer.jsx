@@ -129,12 +129,12 @@ export default function ShopContainer() {
                         >
                             {Categories.map((category) => (
                                 <SwiperSlide key={category.id}>
-                                    <div className='mx-auto, bg-white rounded-full shadow-md w-40 h-40 flex item-center justify-center overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300'>
+                                    <div className='mx-auto bg-white rounded-full shadow-md w-40 h-40 flex item-center justify-center overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300'>
                                         <div className=' flex flex-col items-center text-center'>
                                             <div>
                                                 <img src={category.image} alt={category.name} className='object-cover rounded-full' />
                                             </div>
-                                            <div className='absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 duration-300 flex items-center justify-center'>
+                                            <div className='absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 duration-300 items-center justify-center'>
                                                 <div className='text-white text-lg font-semibold'>Shop {category.name}</div>
                                             </div>
                                         </div>

@@ -30,17 +30,17 @@ function Navbar() {
             </nav>
             
             <div
-                className={`fixed top-0 left-0 h-screen w-40 bg-gray-400  z-40 transform transition-transform duration-300 ease-in-out 
+                className={`fixed top-0 left-0 h-screen w-40 bg-gray-400 z-40 transform transition-transform duration-300 ease-in-out 
                 ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <div className="flex flex-col space-y-4 text-black py-6 px-6">
                     <button
                         onClick={handleMenuToggle}
-                        className="text-white text-3xl self-end focus:outline-none">
+                        className="text-white text-3xl self-end">
                         *
                     </button>
-                    <Link to="/" onClick={handleMenuToggle} className="hover:text-gray-800 hover:underline transition">Home</Link>
-                    <Link to="/shop" onClick={handleMenuToggle} className="hover:text-gray-900 transition">Shop</Link>
-                    {/* <Link to="/products" onClick={handleMenuToggle} className="hover:text-gray-800 transition">Products</Link> */}
+                    <Link to="/" className="hover:text-gray-800 hover:underline transition">Home</Link>
+                    <Link to="/shop" className="hover:text-gray-900 transition">Shop</Link>
+                    {/* <Link to="/products" className="hover:text-gray-800 transition">Products</Link> */}
                 </div>
             </div>
         </div>
