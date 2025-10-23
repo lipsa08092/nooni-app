@@ -30,6 +30,7 @@ import { BrowserRouter as Router ,Routes , Route ,} from 'react-router-dom';
 import Home from "./Pages/Home";
 import Product from "./Pages/Product";
 import Shop from "./Pages/Shop";
+import Cart from "./Pages/Cart"
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/product/:id" element={<Product/>} />
+          <Route path="/Cart"element={<Cart/>}/>
         </Routes>
     </Router>
     

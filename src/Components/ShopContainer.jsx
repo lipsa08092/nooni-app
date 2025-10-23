@@ -135,7 +135,7 @@ export default function ShopContainer() {
                                                 <img src={category.image} alt={category.name} className='object-cover rounded-full' />
                                             </div>
                                             <div className='absolute inset-0 bg-black bg-opacity-30 opacity-0 hover:opacity-100 duration-300 items-center justify-center'>
-                                                <div className='text-white text-lg font-semibold'>Shop {category.name}</div>
+                                                <div className='text-white text-lg text-center py-10 font-semibold'>Shop {category.name}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -147,7 +147,42 @@ export default function ShopContainer() {
                             ))}
                         </Swiper>
                     </div>
-                </section>  
+                </section> 
+                
+                <div className="px-8 py-10 min-h-screen space-y-8">
+                    <div className="grid grid-cols-2 gap-6">
+                        <div className="rounded-lg bg-white p-4 flex flex-col justify-between relative">
+                            <h2 className="text-6xl font-light mb-2">Up To 40% Off <br />Top Lamp Brands</h2>
+                            <a href="#" className="underline font-medium text-sm text-gray-800 mt-10  hover:text-blue-800">SHOP NOW</a>
+                            <img src="https://static.vecteezy.com/system/resources/previews/014/975/819/original/3d-floor-lamp-on-transparent-background-realistic-detailed-3d-3d-rendering-png.png" alt="Lamp" className="h-30 object-contain" />
+                            <div className="rounded-lg bg-blue-100 p-10 flex flex-col justify-between gap-6">
+                                <div>
+                                    <span className="text-sm text-black">NEW PRODUCTS</span>
+                                    <h2 className="text-2xl font-bold mt-2 mb-2">Up To 25% Off Cabinets</h2>
+                                </div>
+                                <a href="#" className="underline font-medium text-sm text-gray-800  hover:text-blue-800">SHOP NOW</a>
+                            </div>
+                        </div>
+                        <div className="rounded-lg bg-yellow-600 p-6 mr-6 mb-4 flex flex-col items-center justify-between">
+                            <div className='text-gray-50 text-center font-normal mt-5 gap-'>
+                                <span className="text-lg font-semibold">BIG SALE</span>
+                                <h2 className="text-5xl  mt-2 mb-2">Up to 70% Off <br /> Furniture & Decor</h2>
+                            </div>
+                            <div>
+                            <a href="#" className="underline font-medium text-md text-gray-50 mt-10 hover:text-md hover:text-blue-900">SHOP NOW</a>
+                            </div>
+                            <img src="https://www.pngall.com/wp-content/uploads/11/Wooden-Stool-PNG-File.png" alt="Stool" className="h-50 object-cover" />
+                        </div>
+                    </div>
+                    <div className="rounded-md bg-pink-200 ml-4 mr-6  flex flex-col sm:flex-row items-center p-16 gap-5">
+                        <span className="text-7xl font-bold text-black mr-3 ">10%</span>
+                        <div>
+                            <span className=" text-3xl font-normal">Get More Pay Less</span>
+                            <div className="text-lg text-black">On orders $500 + Use Coupon Code: <span className="font-bold">WSD10</span></div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="max-w-6xl mx-auto p-6">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                         {products.map((item) => (
