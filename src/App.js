@@ -31,6 +31,8 @@ import Home from "./Pages/Home";
 import Product from "./Pages/Product";
 import Shop from "./Pages/Shop";
 import Cart from "./Pages/Cart"
+import Login from './Pages/Login';
+import Blog from './Pages/Blog';
 
 function App() {
   return (
@@ -39,7 +41,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/product/:id" element={<Product/>} />
-          <Route path="/Cart"element={<Cart/>}/>
+          <Route path="/cart"element={<Cart/>}/>
+          <Route path="/login" element= {<Login/>}/>
+          <Route path="/blog" element= {<Blog/>} />
         </Routes>
     </Router>
     

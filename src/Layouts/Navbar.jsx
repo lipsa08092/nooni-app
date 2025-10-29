@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FaSearch, FaUser, FaHeart, FaShoppingCart } from 'react-icons/fa';
 import { useCart } from "../Eslint/CartContext"
 
+
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
     const { cartCount } = useCart();
@@ -11,6 +12,8 @@ function Navbar() {
     const handleMenuToggle = () => {
         setMenuOpen(!menuOpen);
     }
+
+    
 
     return (
         <div >
@@ -23,24 +26,28 @@ function Navbar() {
                     <p className="text-6xl max-sm:text-6xl italic font-sans font-light">noon'i</p>
                 </div>
                 <div className="flex items-center gap-4 max-sm:gap-6 max-sm:pt-5">
-                    <button className='text-gray-700'><FaUser /></button>
+                    <Link to="/login" className='text-gray-700'><FaUser /></Link>
                     <button className='text-gray-700'><FaHeart /></button>
-                    <button className='flex text-gray-700'><FaShoppingCart /> <span className="text-sm ml-4 px-1.5 rounded-full absolute bg-red-500 text-white">{cartCount}</span></button>
+                    <Link to="/cart" className="relative">
+                        <FaShoppingCart className="text-gray-700" />
+                        <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+                        {cartCount}</span>
+                    </Link>
+
                 </div>
             </nav>
             
-            <div
-                className={`fixed top-0 left-0 h-screen w-40 bg-gray-400 z-40 transform transition-transform duration-300 ease-in-out 
+            <div className={`fixed top-0 left-0 h-screen w-40 bg-white z-40 transform transition-transform duration-300 ease-in-out 
                 ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}>
                 <div className="flex flex-col space-y-4 text-black py-6 px-6">
                     <button
                         onClick={handleMenuToggle}
-                        className="text-white text-3xl self-end">
+                        className="text-black text-3xl self-start">
                         *
                     </button>
-                    <Link to="/" className="hover:text-gray-800 hover:underline transition">Home</Link>
-                    <Link to="/shop" className="hover:text-gray-900 transition">Shop</Link>
-                    {/* <Link to="/products" className="hover:text-gray-800 transition">Products</Link> */}
+                    <Link to="/" className="hover:text-gray-700 hover:underline transition text-black">Home</Link>
+                    <Link to="/shop" className="hover:text-gray-700 transition text-black hover:underline">Shop</Link>
+                    <Link to="/blog" className="hover:text-gray-800 transition text-blacl hover:underline ">Blog</Link>
                 </div>
             </div>
         </div>

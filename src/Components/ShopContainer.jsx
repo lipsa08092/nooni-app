@@ -1,12 +1,21 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-// import ShopSlider from './ShopSlider';
 import { Swiper , SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination'; 
 import 'swiper/css/autoplay';
 import { Navigation , Pagination , Autoplay } from 'swiper/modules';
+import lamp from "../Assects/banner-lamp.jpg";
+import banner from "../Assects/banner-decor.jpg";
+import stool from "../Assects/banner-Stool.jpg";
+import img1 from "../Assects/shopImage-1.jpg";
+import img2 from "../Assects/ShopImage -2.jpg";
+import img3 from "../Assects/Shopimage-3.jpg";
+import img4 from "../Assects/Shopimage-4.jpg";
+import img5 from "../Assects/Shopimage-5.jpg";
+import img7 from "../Assects/Shopimage-7.jpg";
+import img8 from "../Assects/Shopimage-8.jpg";
 
 
 const Categories =[
@@ -79,45 +88,52 @@ const Categories =[
 const products = [
     {
         id: 1,
-        name: "Wood Outdoor Adirondack Chair",
-        price: 1009,
-        image: "https://plus.unsplash.com/premium_photo-1705169612592-32610774a5d0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=840",
+        name: "Floor Lamp With Polyester Shade",
+        price: 1009.00,
+        image: img7,
     },
     {
         id: 2,
         name: "Solid Wood Bar Storage Cabinet",
-        price: 1899,
-        image: "https://images.unsplash.com/photo-1601760561441-16420502c7e0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870",
+        price: 1899.00,
+        image: img2,
     },
     {
         id: 3,
-        name: "Floor Lamp With Polyester Shade",
-        price: 399,
-        image: "https://images.unsplash.com/photo-1517991104123-1d56a6e81ed9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870",
+        name: "Queen Size Elegant Double Bed",
+        price: 399.00,
+        image: img3,
     },
     {
         id: 4,
-        name: "Modern Sofa Set",
-        price: 2499,
-        image:"https://tse1.mm.bing.net/th/id/OIP.bPy80OVkc9HPbHlETmk0-gHaHa?pid=Api&P=0&h=180"
+        name: "Stylish Lamp",
+        price: 2499.00,
+        image:img4,
     },
     {
         id: 5,  
-        name: "Queen Size Bed Frame",
-        price: 1599,
-        image:"https://images.unsplash.com/photo-1635594202056-9ea3b497e5c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1480https://images.unsplash.com/photo-1635594202056-9ea3b497e5c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1480"
+        name: "Solid wooden Outdoor Chair",
+        price: 1599.00,
+        image:img5,
     },
+    
     {
-        id:6,
-        name: "Beautifull Dining Table",
-        price:2055,
-        image:"https://images.unsplash.com/photo-1615803796379-b4cda8e9c09c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870"
-    }
+        id: 6,  
+        name: "Elegant and stylish wooden chair",
+        price: 1599.00,
+        image:img1,
+    },{
+        id: 7,  
+        name: " Beautifull LED Lamp",
+        price: 1599.00,
+        image:img8,
+    },
     ];
 
 export default function ShopContainer() {
     return (
             <div>
+                {/* Image Slider */}
                 <section className='py-16 bg-gray-50'>
                     <div className='max-w-7xl mx-auto px-6'>
                         <h2 className='text-2xl font-bold mb-10'>SHOP BY CATEGORY</h2>
@@ -148,33 +164,48 @@ export default function ShopContainer() {
                         </Swiper>
                     </div>
                 </section> 
-                
+
+                {/* 3 Image Container */}
                 <div className="px-8 py-10 min-h-screen space-y-8">
-                    <div className="grid grid-cols-2 gap-6">
-                        <div className="rounded-lg bg-white p-4 flex flex-col justify-between relative">
-                            <h2 className="text-6xl font-light mb-2">Up To 40% Off <br />Top Lamp Brands</h2>
-                            <a href="#" className="underline font-medium text-sm text-gray-800 mt-10  hover:text-blue-800">SHOP NOW</a>
-                            <img src="https://static.vecteezy.com/system/resources/previews/014/975/819/original/3d-floor-lamp-on-transparent-background-realistic-detailed-3d-3d-rendering-png.png" alt="Lamp" className="h-30 object-contain" />
-                            <div className="rounded-lg bg-blue-100 p-10 flex flex-col justify-between gap-6">
-                                <div>
-                                    <span className="text-sm text-black">NEW PRODUCTS</span>
-                                    <h2 className="text-2xl font-bold mt-2 mb-2">Up To 25% Off Cabinets</h2>
-                                </div>
-                                <a href="#" className="underline font-medium text-sm text-gray-800  hover:text-blue-800">SHOP NOW</a>
+                    <div className="grid grid-cols-2 max-sm:grid-cols-1 gap-8">
+                        <div className="relative bg-white  overflow-hidden flex flex-col justify-between">
+                     {/* Lamp Image */}
+                        <div className="relative">
+                            <img
+                                src={lamp}
+                                alt="Lamp"
+                                className="w-full h-[300px] object-cover"/>
+                            <div className="absolute top-10 left-8 space-y-3 text-black">
+                                <h2 className="text-5xl  max-sm:text-3xl font-semibold leading-tight">Up To 40% Off <br /> Top Lamp Brands</h2>
+                                <a href="#" className="underline font-medium text-sm text-gray-800 hover:text-blue-800 transition">SHOP NOW </a>
                             </div>
                         </div>
-                        <div className="rounded-lg bg-yellow-600 p-6 mr-6 mb-4 flex flex-col items-center justify-between">
-                            <div className='text-gray-50 text-center font-normal mt-5 gap-'>
-                                <span className="text-lg font-semibold">BIG SALE</span>
-                                <h2 className="text-5xl  mt-2 mb-2">Up to 70% Off <br /> Furniture & Decor</h2>
-                            </div>
+
+                        {/* Cabinet Banner */}
+                        <div className="relative w-full h-72 ml-7 bg-cover bg-center p-10 flex flex-col justify-between text-black"
+                            style={{ backgroundImage: `url(${banner})` }}>
                             <div>
-                            <a href="#" className="underline font-medium text-md text-gray-50 mt-10 hover:text-md hover:text-blue-900">SHOP NOW</a>
+                                <span className="text-sm max-sm:text-xs">NEW PRODUCTS</span>
+                                <h2 className="text-2xl max-sm:text-lg font-bold mt-2 mb-3">Up To 25% Off Cabinets</h2>
+                                <a href="#" className="underline font-medium text-sm text-gray-800 hover:text-blue-800 transition">SHOP NOW</a>
                             </div>
-                            <img src="https://www.pngall.com/wp-content/uploads/11/Wooden-Stool-PNG-File.png" alt="Stool" className="h-50 object-cover" />
                         </div>
                     </div>
-                    <div className="rounded-md bg-pink-200 ml-4 mr-6  flex flex-col sm:flex-row items-center p-16 gap-5">
+
+                        {/* right Stool */}
+                        <div
+                            className="h-[600px] relative bg-cover bg-center flex items-center justify-center p-6"
+                            style={{ backgroundImage: `url(${stool})` }}>
+            
+                            <div className=" absolute top-0 p-8 text-center text-white space-y-4">
+                                <span className="text-lg max-sm:text-sm font-semibold tracking-wide">BIG SALE</span>
+                                <h2 className="text-5xl max-sm:text-3xl font-bold leading-tight">Up to 70% Off <br /> Furniture & Decor</               h2>
+                                <a href="#" className="underline font-medium text-md max-sm:text-sm text-gray-100 hover:text-blue-300 transition">SHOP NOW</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="bg-pink-200 ml-6 flex flex-col sm:flex-row items-center p-16 gap-5">
                         <span className="text-7xl font-bold text-black mr-3 ">10%</span>
                         <div>
                             <span className=" text-3xl font-normal">Get More Pay Less</span>
@@ -183,19 +214,26 @@ export default function ShopContainer() {
                     </div>
                 </div>
 
-                <div className="max-w-6xl mx-auto p-6">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                {/* See All Products */}
+                <div className="max-w-7xl mx-auto px-6 py-10">
+                    <div className="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-8">
+                        <div className='space-y-8' >
+                            <h2 className='text-6xl font-sans mt-10'>Best <br />Morden <br />Furniture </h2>
+                            <button className='text-xl hover:underline hover:text-red-600 hover:text-lg'>See All-- </button>
+                        </div>
                         {products.map((item) => (
-                        <div key={item.id} className="bg-white rounded-lg shadow">
-                            <img src={item.image} alt={item.name} className="w-full h-56 object-cover rounded-t-lg"/>
-                            <div className="p-5">
-                                <h3 className="font-bold text-lg mb-2">{item.name}</h3>
-                                <p className="text-gray-600 mb-2">${item.price}</p>
+                        <div key={item.id} className="bg-white  shadow-md overflow-hidden hover:shadow-2xl transition-all duration-300">
+                            <div className='w-full h-85 overflow-hidden'>
+                                <img src={item.image} alt={item.name} class="w-full h-85 object-cover object-center "/>
+                            </div>
+                            <div className="flex-1 p-5 flex flex-col justify-between">
+                                <h3 className="font-semibold text-md mb-2 text-gray-800">{item.name}</h3>
+                                <p className="text-gray-900 mb-3">${item.price}</p>
                                 <Link
                                 to={`/product/${item.id}`}
-                                className="inline-block px-6 py-2 bg-black text-white rounded hover:bg-red-800 transition"
+                                className="w-full inline-block px-6 py-2 text-black text-center hover:bg-red-800 hover:text-white transition-all duration-300"
                                 >
-                                View details
+                                VIEW DETAILS
                                 </Link>
                             </div>
                         </div>
