@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import {motion} from "framer-motion";
-
+import Home1 from "../Assects/slide-home1.png"
 
 
 
@@ -18,7 +18,7 @@ export default function HomeContainer() {
                 <Link to="/shop" className="underline font-semibold text-black py-3 outline-none hover:text-blue-600 transition">SHOP NOW</Link>
             </div>
             <div className="mt-10 md:mt-0">
-                <img src="https://static.vecteezy.com/system/resources/previews/021/356/184/original/black-chair-isolated-on-a-transparent-background-png.png" alt="Adirondack Chair" className="w-[700px] h-[500px] object-contain drop-shadow-xl"/>
+                <img src={Home1} alt="Adirondack Chair" className="w-[700px] h-[500px] object-contain drop-shadow-xl"/>
             </div>
             
         </motion.div>

@@ -16,6 +16,11 @@ import img4 from "../Assects/Shopimage-4.jpg";
 import img5 from "../Assects/Shopimage-5.jpg";
 import img7 from "../Assects/Shopimage-7.jpg";
 import img8 from "../Assects/Shopimage-8.jpg";
+import dining from "../Assects/table-1.jpg";
+import decor from "../Assects/lamp-1.jpg";
+import outdoor from "../Assects/chair-1.jpg";
+import office from "../Assects/bed-1.jpg";
+import cabinet from "../Assects/cabinet-1.jpg"
 
 
 const Categories =[
@@ -23,49 +28,49 @@ const Categories =[
     id:1,
     name: "Table",
     product: 5,
-    image: "https://i5.walmartimages.com/seo/Solid-Wood-Coffee-Table-Circle-Center-Table-Modern-Farmhouse-Living-Room-Coffee-Table-Round-Natural-Oak-Finish_34152456-760f-4775-9a80-230abe1ef722.778be26ac8c6eee6b8a131539e03337b.jpeg"
+    image: dining,
 },
 {
     id:2,
     name: "Chair",
     product: 8,
-    image:"https://m.media-amazon.com/images/I/71q32o2in-L.jpg"
+    image:outdoor,
 },
 {
     id:3,
     name: "Lamp",
     product: 4,
-    image:"https://plus.unsplash.com/premium_photo-1668005190411-1042cd38522e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387"
+    image:decor,
 },
 {
     id:4,
     name: "Sofa",
     product: 6,
-    image:"https://tse1.mm.bing.net/th/id/OIP.bPy80OVkc9HPbHlETmk0-gHaHa?pid=Api&P=0&h=180"
+    image:img5,
 },
 {
     id:5,
     name: "Cabinet",
     product: 3,
-    image:"https://m.media-amazon.com/images/I/81E0cdBMBrL._AC_SL1500_.jpg"
+    image:cabinet,
 },
 {
     id:6,
     name: "Bed",
     product: 7,
-    image:"https://images.unsplash.com/photo-1635594202056-9ea3b497e5c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1480"
+    image:office,
 },
 {
     id:7,
-    name: "Dining",
+    name: "Table",
     product: 4,
-    image:"https://images.unsplash.com/photo-1615803795991-80ce0f7c4770?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387"
+    image:dining,
 },
 {
     id:8,
-    name: "Decor",
+    name: "Lamp",
     product: 9,
-    image:"https://images.unsplash.com/photo-1584589167171-541ce45f1eea?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387"
+    image:decor,
 },
 {
     id:9,
@@ -74,15 +79,15 @@ const Categories =[
     image:"https://plus.unsplash.com/premium_photo-1732449368194-655ad29627db?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=498"
 },{
     id:10,
-    name: "Outdoor",
+    name: "Chair",
     product: 5,
-    image:"https://plus.unsplash.com/premium_photo-1687960116947-11ecc22f45c0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=387"
+    image:outdoor,
 },
 {
     id:11,
-    name: "Office",
+    name: "Bed",
     product: 6,
-    image:"https://plus.unsplash.com/premium_photo-1745598762932-be509076fca0?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=388"
+    image:office,
 }]
 
 const products = [
