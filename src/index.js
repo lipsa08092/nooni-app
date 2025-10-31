@@ -4,12 +4,15 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CartProvider } from "./Eslint/CartContext";
+import { UserProvider } from "./Eslint/UserContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
   <CartProvider>
+  <UserProvider>
       <App />
+  </UserProvider>
     </CartProvider>
   </React.StrictMode>
 );

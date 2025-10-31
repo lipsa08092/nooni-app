@@ -9,7 +9,14 @@ import img5 from "../Assects/Shopimage-5.jpg";
 import img7 from "../Assects/Shopimage-7.jpg";
 import img8 from "../Assects/Shopimage-8.jpg";
 
-const products = {
+
+export default function ProductContainer() {
+  const { id } = useParams();
+  const { addToCart } = useCart();
+
+  const productId = Number(id);
+
+  const products = {
   1: {
     name: "Floor Lamp With Polyester Shade",
     price: 1009.00,
@@ -62,14 +69,9 @@ const products = {
       img8,
   },
 };
-
-export default function ProductContainer() {
-  const { id } = useParams();
-  const product = products[id];
-  const { addToCart } = useCart();
-
+  const product = products[productId];
   const handleAddToCart = () => {
-    addToCart({ id, ...product });
+    addToCart({ id: productId, ...product });
   };
 
   return (
@@ -90,7 +92,7 @@ export default function ProductContainer() {
         </div>
         <div className="flex items-center gap-4 mt-6">
         <button
-          className="bg-gradient-to-r from-black to-gray-800 text-white px-8 py-3 rounded-xl  shadow-md"
+          className="bg-black hover:bg-slate-800 text-white px-8 py-3 rounded-xl  shadow-md"
           onClick={handleAddToCart}
         >
           Add to Cart

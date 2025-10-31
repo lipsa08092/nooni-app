@@ -4,15 +4,21 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FaCarSide } from "react-icons/fa";
 
+
 export default function CartContainer() {
   const { cartItems, removeFromCart } = useCart();
   const [orderPlaced, setOrderPlaced] = useState(false);
+    const { clearCart } = useCart();
+  
 
   const subtotal = cartItems.reduce((total, item) => total + item.price, 0);
 
   const handlePlaceOrder = () => {
     setOrderPlaced(true);
+    clearCart();
   };
+  
+
   if (orderPlaced) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen text-center px-6">
