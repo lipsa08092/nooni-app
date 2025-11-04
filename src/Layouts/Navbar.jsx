@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { FaSearch, FaUser, FaHeart, FaShoppingCart ,FaSignOutAlt } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaSistrix, FaUser, FaHeart, FaShoppingCart ,FaSignOutAlt } from "react-icons/fa";
 import { useCart } from "../Eslint/CartContext";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useUser} from "../Eslint/UserContext";
+import logo from "../Assects/logo.png"
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [userDropdown, setUserDropdown] = useState(false);
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
   const { cartCount } = useCart();
   const { user, login, logout } = useUser();
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
@@ -16,7 +17,6 @@ function Navbar() {
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
-
   const handleUserMouseEnter = () => setUserDropdown(true);
   const handleUserMouseLeave = () => setUserDropdown(false);
 
@@ -30,32 +30,40 @@ function Navbar() {
     }
   };
 
+  useEffect(()=> {
+    if (!user) {
+      setLoginForm ({username:"", password:""})
+    }
+  },[user]
+);
+
   return (
     <div>
-      <nav className="bg-white shadow-lg text-2xl top-0 z-50 flex max-sm:flex-col max-sm:space-y-3 justify-between items-center py-4 px-6">
+      <nav className="bg-gray-50 shadow-md text-2xl top-0 z-50 flex max-sm:flex-col max-sm:space-y-3 justify-between items-center py-4 px-6">
         <div className="flex items-center gap-4 ">
           <button onClick={handleMenuToggle} className="text-gray-700">☰</button>
           <button className="text-gray-700">
-            <FaSearch />
+            <FaSistrix />
           </button>
         </div>
         <div className="text-center">
-          <p className="text-6xl max-sm:text-6xl italic font-sans font-light">
-            noon'i
-          </p>
+          <img src={logo} alt="logo" className="h-9" />
         </div>
-        <div className="flex items-center gap-4 max-sm:gap-6 max-sm:pt-5">
+        <div className="flex items-center gap-8 max-sm:gap-6 max-sm:pt-5">
           <div
             className="relative"
             onMouseEnter={handleUserMouseEnter}
             onMouseLeave={handleUserMouseLeave}
           >
-            <button className="text-gray-700 hover:text-black transition">
+            <button  onDoubleClick={()=> 
+              navigate("/")
+            }
+            className="text-gray-700 hover:text-black transition">
               <FaUser />
             </button>
 
             {userDropdown && (
-              <div className="absolute mt-2 w-80 right-0 bg-white border transform transition-all ease-out p-6 z-50 rounded-lg shadow-md">
+              <div className="absolute mt-2 w-80 max-sm:w-52 -translate-x-1/2  bg-white border transform transition-all ease-out p-6 z-50 rounded-lg shadow-md">
                 {!user ? (
                   <div className="flex flex-col space-y-4">
                     <input
@@ -93,30 +101,36 @@ function Navbar() {
                     </label>
                   </div>
                 ) : (
-                  <div className="flex flex-col space-y-3">
-                    <p className="font-semibold text-lg border-b pb-2">
+                  <div className="flex flex-col space-y-3 w-full ">
+                    <p className="font-semibold text-blue-700 text-lg border-b pb-2 break-words">
                       Hello, {user.name} !!!
                     </p>
                     <button
-                      className="hover:text-blue-700  mb-2 text-sm text-left flex gap-3"
+                    onClick={()=> {
+                        navigate("/profile");
+                        
+                      }}
+                      className="hover:text-blue-700  mb-2 text-sm  flex gap-3 "
                     >
-                      <FaUser/>My Profile
+                      <FaUser className="mt-1"
+                      />My Profile
                     </button>
                     <button
-                      className="hover:text-blue-700 mb-2 text-sm text-left flex gap-3"
+                      className="hover:text-blue-700 mb-2 text-sm  flex gap-3"
                     >
-                     <FaShoppingCart/> Orders
+                      <FaShoppingCart className="mt-1"/> Orders
                     </button>
                     <button
-                      className="hover:text-blue-700 text-sm mb-2 text-left flex gap-3"
+                      
+                      className="hover:text-blue-700 text-sm mb-2 flex gap-3"
                     >
-                     <FaHeart/> Wishlist
+                      <FaHeart className="mt-1"/> Wishlist
                     </button>
                     <button
                       onClick={logout}
                       className="text-red-500 hover:text-red-700  mb-2 text-sm text-left flex gap-3"
                     >
-                      <FaSignOutAlt/> Logout
+                      <FaSignOutAlt className="mt-1"/> Logout
                     </button>
                   </div>
                 )}
@@ -140,7 +154,7 @@ function Navbar() {
         className={`fixed top-0 left-0 h-screen w-[20%] backdrop:blur-md  bg-gray-300  bg-black-300/20 z-40 transform transition-transform duration-300 ease-in-out 
                 ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <div className="flex flex-col space-y-4 text-black py-6 px-6">
+        <div className="flex flex-col space-y-6 text-black py-6 px-6">
           <button
             onClick={handleMenuToggle}
             className="text-black text-3xl self-start"
@@ -149,19 +163,19 @@ function Navbar() {
           </button>
           <Link
             to="/"
-            className="hover:text-gray-700 hover:underline transition text-black"
+            className="hover:text-gray-700 md:text-3xl md:ml-7 hover:underline transition text-black"
           >
             Home
           </Link>
           <Link
             to="/shop"
-            className="hover:text-gray-700 transition text-black hover:underline"
+            className="hover:text-gray-700 md:text-3xl md:ml-7 transition text-black hover:underline"
           >
             Shop
           </Link>
           <Link
             to="/blog"
-            className="hover:text-gray-800 transition text-blacl hover:underline "
+            className="hover:text-gray-700 md:text-3xl md:ml-7 transition text-black hover:underline "
           >
             Blog
           </Link>

@@ -7,10 +7,8 @@ import ProductContainer from '../Components/ProductsContainer'
 function Product() {
     return (
         <div>
-            {/* <CartProvider> */}
             <Navbar />
             <ProductContainer />
-            {/* </CartProvider> */}
             <Footer/>
         </div>
     )

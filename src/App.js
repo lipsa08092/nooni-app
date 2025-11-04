@@ -33,6 +33,7 @@ import Shop from "./Pages/Shop";
 import Cart from "./Pages/Cart"
 import Login from './Pages/Login';
 import Blog from './Pages/Blog';
+import Profile from "./Pages/Profile"
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/cart"element={<Cart/>}/>
           <Route path="/login" element= {<Login/>}/>
           <Route path="/blog" element= {<Blog/>} />
+          <Route path="/profile" element= {<Profile/>} />
         </Routes>
     </Router>
     

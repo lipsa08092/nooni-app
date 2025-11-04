@@ -6,12 +6,10 @@ export const useUser = () => useContext(UserContext);
 export function UserProvider({ children }) {
   const [user, setUser] = useState("");
 
- 
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser);
   }, []);
-
 
   useEffect(() => {
     if (user) {
