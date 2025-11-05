@@ -34,6 +34,7 @@ import Cart from "./Pages/Cart"
 import Login from './Pages/Login';
 import Blog from './Pages/Blog';
 import Profile from "./Pages/Profile"
+import Wishlist from './Pages/Wishlist';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="/login" element= {<Login/>}/>
           <Route path="/blog" element= {<Blog/>} />
           <Route path="/profile" element= {<Profile/>} />
+          <Route path="/wishlist" element= {<Wishlist/>}/>
         </Routes>
     </Router>
     

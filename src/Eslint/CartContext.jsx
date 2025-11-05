@@ -22,15 +22,22 @@ export function CartProvider({ children }) {
   
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-
     const updatedCart = [...prevItems, product];
-
       localStorage.setItem("cartItems", JSON.stringify(updatedCart));
       return updatedCart;
     });
     setCartCount((prevCount) => prevCount + 1);
   };
 
+  const removeFromCart = (id) => {
+    setCartItems((prevItems) => {
+      const updatedCart = prevItems.filter((item) => item.id !== id);
+      localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+      return updatedCart;
+    });
+    setCartCount((prevCount) => prevCount - 1);
+  };
+  
   const updateCartItem = (id, updatedData) => {
     setCartItems((prevItems) => {
       const updatedCart = prevItems.map((item) =>
@@ -40,17 +47,6 @@ export function CartProvider({ children }) {
       return updatedCart;
     });
   };
-
-  
-  const removeFromCart = (id) => {
-    setCartItems((prevItems) => {
-      const updatedCart = prevItems.filter((item) => item.id !== id);
-      localStorage.setItem("cartItems", JSON.stringify(updatedCart));
-      return updatedCart;
-    });
-    setCartCount((prevCount) => prevCount - 1);
-  };
-
 
   const clearCart = () => {
     setCartItems([]);

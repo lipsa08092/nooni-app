@@ -21,7 +21,9 @@ import decor from "../Assects/lamp-1.jpg";
 import outdoor from "../Assects/chair-1.jpg";
 import office from "../Assects/bed-1.jpg";
 import cabinet from "../Assects/cabinet-1.jpg";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { useWishlist } from "../Eslint/WishlistContext";
+
 
 const Categories = [
   {
@@ -140,6 +142,10 @@ const products = [
 ];
 
 export default function ShopContainer() {
+
+  const { wishlist, addToWishlist, removeFromWishlist } = useWishlist();
+  const isInWishlist= (id) => wishlist.some((item)=> item.id === id);
+
   return (
     <div>
       {/* Image Slider */}
@@ -262,7 +268,7 @@ export default function ShopContainer() {
       </div>
 
       {/* See All Products */}
-      <div className="max-w-7xl mx-auto px-6 py-10">
+      <div className="max-w-7xl mx-auto py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-8">
             <h2 className="text-6xl max-sm:4xl  font-sans mt-10">
@@ -287,17 +293,23 @@ export default function ShopContainer() {
                 />
 
                 <button
-                  className="absolute top-3 right-3 max-sm:top-72 rounded-full p-2 hover:bg-red-600  hover:text-white  overflow-hidden transition-all duration-300"
-                >
-                  <FaRegHeart className="font-extralight text-2xl" />
+                  onClick={()=> isInWishlist(item.id) 
+                    ? removeFromWishlist(item.id) 
+                    : addToWishlist(item)}
+                  className="absolute top-3 right-3 rounded-full p-2 hover:bg-red-600  hover:text-white  overflow-hidden transition-all duration-300">
+                    {isInWishlist(item.id) ? (
+                      <FaHeart className="text-red-600 text-2xl"/>
+                    ) : (
+                  <FaRegHeart className=" text-2xl" />
+                    )}
                 </button>
               </div>
 
               <div className="flex-1 p-5 flex flex-col justify-between">
-                <h3 className="font-semibold text-md mb-2 text-gray-800">
+                <h3 className="font-semibold text-md mb-2 text-black">
                   {item.name}
                 </h3>
-                <p className="text-gray-900 mb-3">${item.price}</p>
+                <p className="text-black font-bold mb-3">${item.price}</p>
                 <Link
                   to={`/product/${item.id}`}
                   className="w-full inline-block px-6 py-2 text-black text-center hover:bg-red-800 hover:text-white transition-all duration-300"

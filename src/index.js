@@ -5,15 +5,18 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CartProvider } from "./Eslint/CartContext";
 import { UserProvider } from "./Eslint/UserContext";
+import { WishlistProvider } from "./Eslint/WishlistContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-  <CartProvider>
-  <UserProvider>
-      <App />
-  </UserProvider>
-    </CartProvider>
+ <React.StrictMode>
+    <UserProvider>
+      <CartProvider>
+        <WishlistProvider>
+          <App />
+        </WishlistProvider>
+      </CartProvider>
+    </UserProvider>
   </React.StrictMode>
 );
 

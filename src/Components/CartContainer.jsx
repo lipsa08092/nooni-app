@@ -2,7 +2,7 @@ import React from "react";
 import { useCart } from "../Eslint/CartContext";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { FaCarSide } from "react-icons/fa";
+import { FaCarSide,FaShoppingCart } from "react-icons/fa";
 
 
 export default function CartContainer() {
@@ -40,18 +40,21 @@ export default function CartContainer() {
 
   return (
     <div className="max-w-5xl mx-auto py-16 px-6 text-center">
-      <h1 className="text-3xl font-semibold mb-8 underline">Shopping Cart</h1>
+      <h1 className="text-4xl font-bold text-gray-800">Shopping Cart</h1>
 
       {cartItems.length === 0 ? (
-        <div className="text-center">
-          <p className="text-gray-600 mb-4">Your cart is Currently empty.</p>
-          <Link
-            to="/shop"
-            className="bg-black text-white px-6 py-2 rounded hover:bg-red-800 transition"
-          >
-            Return to Shop
-          </Link>
-        </div>
+        <div className="flex flex-col items-center justify-center text-center py-24">
+  <FaShoppingCart className="text-gray-400 text-7xl mb-6" />
+  <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+    Your Cart is Empty
+  </h2>
+  <Link
+    to="/shop"
+    className=" bg-black text-white px-8 py-3 rounded-full shadow-md hover:scale-105 transition-all duration-300"
+  >
+   Return to Shop
+  </Link>
+</div>
       ) : (
         <div className="flex flex-col md:flex-row justify-between items-start gap-10 mt-10 max-w-6xl mx-auto">
           <div className="flex-1 space-y-6 w-full">

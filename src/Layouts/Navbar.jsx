@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FaSistrix, FaUser, FaHeart, FaShoppingCart ,FaSignOutAlt } from "react-icons/fa";
+import {
+  FaSistrix,
+  FaUser,
+  FaHeart,
+  FaShoppingCart,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import { useCart } from "../Eslint/CartContext";
 import { useNavigate } from "react-router-dom";
-import { useUser} from "../Eslint/UserContext";
-import logo from "../Assects/logo.png"
+import { useUser } from "../Eslint/UserContext";
+import logo from "../Assects/logo.png";
+import { useWishlist } from "../Eslint/WishlistContext";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,6 +20,7 @@ function Navbar() {
   const { cartCount } = useCart();
   const { user, login, logout } = useUser();
   const [loginForm, setLoginForm] = useState({ username: "", password: "" });
+  const { wishlist } = useWishlist();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -30,18 +38,20 @@ function Navbar() {
     }
   };
 
-  useEffect(()=> {
+  useEffect(() => {
     if (!user) {
-      setLoginForm ({username:"", password:""})
+      setLoginForm({ username: "", password: "" });
     }
-  },[user]
-);
+  }, [user]);
 
   return (
     <div>
-      <nav className="bg-gray-50 shadow-md text-2xl top-0 z-50 flex max-sm:flex-col max-sm:space-y-3 justify-between items-center py-4 px-6">
+      <nav className="bg-gray-50 sticky top-0 z-50 shadow-md flex justify-between items-center py-4 px-6 max-sm:flex-col max-sm:space-y-3">
+
         <div className="flex items-center gap-4 ">
-          <button onClick={handleMenuToggle} className="text-gray-700">☰</button>
+          <button onClick={handleMenuToggle} className="text-gray-700">
+            ☰
+          </button>
           <button className="text-gray-700">
             <FaSistrix />
           </button>
@@ -55,10 +65,10 @@ function Navbar() {
             onMouseEnter={handleUserMouseEnter}
             onMouseLeave={handleUserMouseLeave}
           >
-            <button  onDoubleClick={()=> 
-              navigate("/")
-            }
-            className="text-gray-700 hover:text-black transition">
+            <button
+              onDoubleClick={() => navigate("/")}
+              className="text-gray-700 hover:text-black transition"
+            >
               <FaUser />
             </button>
 
@@ -106,31 +116,25 @@ function Navbar() {
                       Hello, {user.name} !!!
                     </p>
                     <button
-                    onClick={()=> {
+                      onClick={() => {
                         navigate("/profile");
-                        
                       }}
                       className="hover:text-blue-700  mb-2 text-sm  flex gap-3 "
                     >
-                      <FaUser className="mt-1"
-                      />My Profile
+                      <FaUser className="mt-1" />
+                      My Profile
                     </button>
-                    <button
-                      className="hover:text-blue-700 mb-2 text-sm  flex gap-3"
-                    >
-                      <FaShoppingCart className="mt-1"/> Orders
+                    <button className="hover:text-blue-700 mb-2 text-sm  flex gap-3">
+                      <FaShoppingCart className="mt-1" /> Orders
                     </button>
-                    <button
-                      
-                      className="hover:text-blue-700 text-sm mb-2 flex gap-3"
-                    >
-                      <FaHeart className="mt-1"/> Wishlist
+                    <button className="hover:text-blue-700 text-sm mb-2 flex gap-3">
+                      <FaHeart className="mt-1" /> Wishlist
                     </button>
                     <button
                       onClick={logout}
                       className="text-red-500 hover:text-red-700  mb-2 text-sm text-left flex gap-3"
                     >
-                      <FaSignOutAlt className="mt-1"/> Logout
+                      <FaSignOutAlt className="mt-1" /> Logout
                     </button>
                   </div>
                 )}
@@ -138,21 +142,32 @@ function Navbar() {
             )}
           </div>
 
-          <button className="text-gray-700">
-            <FaHeart />
-          </button>
-          <Link to="/cart" className="relative">
+          <Link
+            to="/wishlist"
+            className="relative"
+            onDoubleClick={() => navigate("/shop")}
+          >
+            <FaHeart className="text-2xl text-gray-700" />
+            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full px-1.5">
+              {wishlist.length}
+            </span>
+          </Link>
+          <Link
+            to="/cart"
+            className="relative"
+            onDoubleClick={() => navigate("/shop")}
+          >
             <FaShoppingCart className="text-gray-700" />
-            <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
+            <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs font-bold rounded-full px-1.5">
               {cartCount}
             </span>
           </Link>
         </div>
       </nav>
-
+            
       <div
-        className={`fixed top-0 left-0 h-screen w-[20%] backdrop:blur-md  bg-gray-300  bg-black-300/20 z-40 transform transition-transform duration-300 ease-in-out 
-                ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-0 left-0 h-screen lg:w-[20%] backdrop:blur-md bg-gray-300 z-50 transform transition-transform duration-300 ease-in-out 
+        ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="flex flex-col space-y-6 text-black py-6 px-6">
           <button
@@ -163,19 +178,19 @@ function Navbar() {
           </button>
           <Link
             to="/"
-            className="hover:text-gray-700 md:text-3xl md:ml-7 hover:underline transition text-black"
+            className="hover:text-gray-700 md:text-2xl md:ml-7 hover:underline transition text-black"
           >
             Home
           </Link>
           <Link
             to="/shop"
-            className="hover:text-gray-700 md:text-3xl md:ml-7 transition text-black hover:underline"
+            className="hover:text-gray-700 md:text-2xl md:ml-7 transition text-black hover:underline"
           >
             Shop
           </Link>
           <Link
             to="/blog"
-            className="hover:text-gray-700 md:text-3xl md:ml-7 transition text-black hover:underline "
+            className="hover:text-gray-700 md:text-2xl md:ml-7 transition text-black hover:underline "
           >
             Blog
           </Link>
