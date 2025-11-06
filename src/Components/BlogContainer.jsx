@@ -47,7 +47,7 @@ function BlogContainer() {
         spaceBetween={30}
         loop={true}
         centeredSlides={false}
-        autoplay={{ delay: 3500, disableOnInteraction: false }}
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
         className="pb-10"
       >
@@ -58,20 +58,20 @@ function BlogContainer() {
                 <img
                   src={blog.img}
                   alt={blog.title}
-                  className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-64 md:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute top-4 left-4 bg-white text-black px-2 py-1 text-sm rounded-sm shadow-sm">
                   {blog.date}
                 </span>
               </div>
               <div className="w-full md:w-1/2 space-y-3 md:text-left">
-                <p className="text-gray-600 text-sm font-medium hover:text-red-700 transition">
+                <p className="text-gray-500 text-sm font-medium hover:text-red-700 transition">
                   {blog.category}
                 </p>
                 <h2 className="text-2xl max-sm:text-xl font-semibold text-gray-900 hover:text-red-700 transition">
                   {blog.title}
                 </h2>
-                <p className="text-gray-700">{blog.description}</p>
+                <p className="text-gray-500">{blog.description}</p>
                 <button className="font-semibold text-red-700 hover:text-red-900 underline transition">
                   READ MORE
                 </button>

@@ -46,13 +46,13 @@ function Navbar() {
 
   return (
     <div>
-      <nav className="bg-gray-50 sticky top-0 z-50 shadow-md flex justify-between items-center py-4 px-6 max-sm:flex-col max-sm:space-y-3">
+      <nav className="bg-gray-50 top-0 z-50 shadow-md flex justify-between items-center py-4 px-6 max-sm:flex-col max-sm:space-y-3">
 
         <div className="flex items-center gap-4 ">
-          <button onClick={handleMenuToggle} className="text-gray-700">
+          <button onClick={handleMenuToggle} className="text-2xl text-gray-700">
             ☰
           </button>
-          <button className="text-gray-700">
+          <button className="text-gray-700 text-2xl">
             <FaSistrix />
           </button>
         </div>
@@ -67,7 +67,7 @@ function Navbar() {
           >
             <button
               onDoubleClick={() => navigate("/")}
-              className="text-gray-700 hover:text-black transition"
+              className="text-gray-700 text-2xl hover:text-black transition"
             >
               <FaUser />
             </button>
@@ -157,7 +157,7 @@ function Navbar() {
             className="relative"
             onDoubleClick={() => navigate("/shop")}
           >
-            <FaShoppingCart className="text-gray-700" />
+            <FaShoppingCart className="text-gray-700 text-2xl"  />
             <span className="absolute -top-2 -right-3 bg-red-600 text-white text-xs font-bold rounded-full px-1.5">
               {cartCount}
             </span>
