@@ -166,7 +166,7 @@ function Navbar() {
       </nav>
             
       <div
-        className={`fixed top-0 left-0 h-screen lg:w-[20%] backdrop:blur-md bg-gray-300 z-50 transform transition-transform duration-300 ease-in-out 
+        className={`fixed top-0 left-0 h-screen lg:w-[20%] backdrop:blur-md bg-gray-50 z-50 transform transition-transform duration-300 ease-in-out 
         ${menuOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <div className="flex flex-col space-y-6 text-black py-6 px-6">
@@ -196,6 +196,12 @@ function Navbar() {
           </Link>
         </div>
       </div>
+         {menuOpen && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40"
+          onClick={handleMenuToggle}
+        ></div>
+      )}
     </div>
   );
 }
