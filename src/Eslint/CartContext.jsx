@@ -7,26 +7,48 @@ export function CartProvider({ children }) {
   const [cartItems, setCartItems] = useState([]);
   const [cartCount, setCartCount] = useState(0);
 
-  
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem("cartItems")) || [];
-    setCartItems(storedCart);
-    setCartCount(storedCart.length);
+    try {
+      const storedCart = JSON.parse(localStorage.getItem("cartItems"));
+      if (Array.isArray(storedCart)) {
+        setCartItems(storedCart);
+        setCartCount(storedCart.reduce((acc, item) => acc + (item.quantity || 1), 0));
+      } else {
+        setCartItems([]);
+        setCartCount(0);
+      }
+    } catch (error) {
+      console.error("Error parsing cartItems from localStorage:", error);
+      localStorage.removeItem("cartItems");
+      setCartItems([]);
+      setCartCount(0);
+    }
   }, []);
-
 
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    const count = cartItems.reduce((acc, item) => acc + (item.quantity || 1), 0);
+    setCartCount(count);
   }, [cartItems]);
 
-  
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-    const updatedCart = [...prevItems, product];
+      const existingItem = prevItems.find((item) => item.id === product.id);
+      let updatedCart;
+
+      if (existingItem) {
+        updatedCart = prevItems.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: (item.quantity || 1) + 1 }
+            : item
+        );
+      } else {
+        updatedCart = [...prevItems, { ...product, quantity: 1 }];
+      }
+
       localStorage.setItem("cartItems", JSON.stringify(updatedCart));
       return updatedCart;
     });
-    setCartCount((prevCount) => prevCount + 1);
   };
 
   const removeFromCart = (id) => {
@@ -35,9 +57,8 @@ export function CartProvider({ children }) {
       localStorage.setItem("cartItems", JSON.stringify(updatedCart));
       return updatedCart;
     });
-    setCartCount((prevCount) => prevCount - 1);
   };
-  
+
   const updateCartItem = (id, updatedData) => {
     setCartItems((prevItems) => {
       const updatedCart = prevItems.map((item) =>
@@ -48,6 +69,7 @@ export function CartProvider({ children }) {
     });
   };
 
+  
   const clearCart = () => {
     setCartItems([]);
     setCartCount(0);
